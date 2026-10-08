@@ -1,0 +1,8 @@
+each time you work on ItemiSet:
+
+sh:
+cd path/to/itemiset
+source .venv/bin/activate
+jupyter lab
+
+Start Jupyter from inside that environment, and keep your other Jupyter windows for your nbdev 2 projects. Before committing, run nbdev-export, nbdev-test and nbdev-clean, or just nbdev-prepare, which does all three and also refreshes the README.

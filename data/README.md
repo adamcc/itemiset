@@ -35,5 +35,5 @@ cite the original authors (above) and BioGRID:
 > Stark C, Breitkreutz BJ, Reguly T, Boucher L, Breitkreutz A, Tyers M. BioGRID: a general
 > repository for interaction datasets. *Nucleic Acids Research* 34:D535–D539 (2006).
 
-The MIT License requires its notice to travel with the data: save BioGRID's `LICENSE.txt` from
-the link above into this folder as `BIOGRID-LICENSE.txt`.
+The MIT License requires its notice to travel with the data, so BioGRID's licence is kept beside
+it in `Biogrid-licence.txt`.
