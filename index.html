@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ItemiSet: itemized area-proportional Euler diagrams</title>
+<meta name="description" content="ItemiSet draws itemized area-proportional Euler diagrams: one cell per item, so area is count and the names are the picture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="ItemiSet home">
+      <svg viewBox="0 0 30 22" aria-hidden="true"><rect x="1" y="1" width="16" height="12" rx="3" fill="#BDE8F8" stroke="#1DA1D8" stroke-width="1.5"/><rect x="13" y="1" width="16" height="12" rx="3" fill="#F8C3DE" fill-opacity=".8" stroke="#E0197D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="12" rx="3" fill="#F7F0A6" fill-opacity=".75" stroke="#A39300" stroke-width="1.5"/></svg>
+      <span>ItemiSet</span>
+    </a>
+    <nav class="tabs" aria-label="Pages">
+      <a href="./" aria-current="page">The idea</a>
+      <a href="app.html">App</a>
+      <a href="tour.html">Docs</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a class="gh" href="https://github.com/adamcc/itemiset" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="lede"><strong>ItemiSet draws itemized area-proportional Euler diagrams.</strong> Each gene, protein or other item gets one cell, so a region's area is its count and its contents can be read straight off the figure.</p>
+      <div class="figure" id="heroFig">
+        <div class="figbar">
+          <div class="seg" role="group" aria-label="Show">
+            <button type="button" aria-pressed="true" data-mode="names">Names</button>
+            <button type="button" aria-pressed="false" data-mode="counts">Counts only</button>
+          </div>
+          <span class="spacer"></span>
+          <input class="search" type="search" placeholder="Find a protein" aria-label="Find a protein">
+          <button class="btn" type="button" data-act="replay">Replay layout</button>
+        </div>
+        <div class="figscroll"><div class="svgslot" style="min-height:320px"></div></div>
+        <div class="figfoot" aria-live="polite">Tap or hover a cell to see where it belongs. Example: proteins found by BioID with three P-body baits in human cells. Name colours mark three gene families, chosen for illustration.</div>
+      </div>
+      <p class="credit" style="margin-top:10px">Data: Youn <i>et al.</i> (2018) <a href="https://doi.org/10.1016/j.molcel.2017.12.020"><i>Mol Cell</i> 69:517</a>, high-confidence hits via <a href="https://thebiogrid.org">BioGRID</a> 5.0.262 (MIT License).</p>
+    </div>
+  </section>
+
+  <section class="block" id="cell">
+    <div class="wrap">
+      <h2>Switch to counts and the question comes back.</h2>
+      <div class="prose">
+        <p>A Venn diagram tells you that 24 proteins came down with all three baits. It doesn't tell you which 24, so the next step is always a lookup table. ItemiSet puts the table inside the diagram. The roster is the picture, and the picture is still drawn to scale.</p>
+      </div>
+      <div class="facts">
+        <div class="fact" style="--k:var(--cy)"><h3>Position is membership</h3><p>A cell's place in the diagram says which sets it belongs to, exactly as in an Euler diagram.</p></div>
+        <div class="fact" style="--k:var(--mg)"><h3>Area is the count</h3><p>One cell per item, so every region's area is exactly proportional to its size. Nothing is fitted or approximated.</p></div>
+        <div class="fact" style="--k:var(--ye)"><h3>Text is the identity</h3><p>Following Tukey's advice to make each mark meaningful, the mark is the item's own name.</p></div>
+        <div class="fact" style="--k:#7B2A86"><h3>Type carries more</h3><p>Text colour, weight and style can encode annotations such as GO terms or enrichment scores.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="how">
+    <div class="wrap">
+      <h2>How a layout is built</h2>
+      <p class="prose muted">For up to three sets, ItemiSet doesn't search for a layout. It fills a fixed template, then picks the bottom set and three column widths that give the best shape. That's a few thousand candidates, checked in milliseconds.</p>
+      <div class="steps">
+        <ol class="steplist" id="stepList">
+          <li><button type="button" aria-pressed="true" data-step="1"><b>Stand up three columns</b><span>Left set, shared middle, right set. Each column holds an overlap with the bottom set below and the rest above.</span></button></li>
+          <li><button type="button" aria-pressed="false" data-step="2"><b>Fill back and forth</b><span>Items fill each column from a common baseline in a back-and-forth path, as in a waffle chart, so every zone stays in one piece.</span></button></li>
+          <li><button type="button" aria-pressed="false" data-step="3"><b>Pour the bottom set underneath</b><span>Items only in the bottom set fill a band below the baseline, joining that set's pieces and levelling the lower edge.</span></button></li>
+        </ol>
+        <div class="figure" style="margin-top:0"><div class="figscroll" style="padding:14px 6px"><div id="stepFig"></div></div></div>
+      </div>
+      <div class="guar">
+        <div><h3>Zones are connected</h3><p>Each zone is a contiguous stretch of a back-and-forth path, and such stretches are always one piece.</p></div>
+        <div><h3>Sets have no holes</h3><p>Every set is column-convex: in each column its cells form one unbroken run, which rules out holes.</p></div>
+        <div><h3>Sets are connected</h3><p>Neighbouring columns share the baseline row. The bottom set is joined by its band, with reported filler cells in rare cases.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="play">
+    <div class="wrap">
+      <h2>Try it with your own lists</h2>
+      <p class="prose muted">Paste one item per line, or separate them with spaces or commas. Add a number after a colon (for example <code>CNOT1:42</code>) and the text weight will show it. Everything runs in your browser.</p>
+      <div data-playground></div>
+      <a class="morelink" href="app.html">Open the full app, with downloads</a>
+    </div>
+  </section>
+
+  <section class="block" id="python">
+    <div class="wrap">
+      <h2>Use it from Python</h2>
+      <p class="prose muted">The Python package draws publication figures as PNG, PDF or SVG, with names kept as editable text. It reads CSV, TSV and Excel files, either as a membership table or as one column per set.</p>
+      <div class="pyrow">
+<pre class="code"><span class="c"># install</span>
+pip install git+https://github.com/adamcc/itemiset
+
+<span class="c"># from the command line</span>
+itemiset hits.csv -o hits.pdf --zones-out zones.csv</pre>
+<pre class="code"><span class="c"># in Python</span>
+from itemiset import plot, load_example
+
+ex = load_example("pbody")
+plot(ex["sets"], out="pbody.pdf",
+     categories=ex["categories"])</pre>
+      </div>
+      <a class="morelink" href="tour.html">Read the tour</a>
+      <div class="parity">
+        <p>The diagrams on this page come from a JavaScript port of the Python layout. For the same lists and options, both put every name in the same cell: the test suite checks this on over 200 layouts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="three">
+    <div class="wrap">
+      <h2>Why it stops at three sets</h2>
+      <p class="prose">Light cyan, magenta and yellow, multiplied like inks, give exactly seven distinguishable tints. Three sets have exactly seven zones. Tap a tint to see which sets make it.</p>
+      <div class="tints" id="tints"></div>
+      <p class="tintcap" id="tintCap" aria-live="polite"></p>
+      <div class="two">
+        <div>
+          <h3>The geometry also runs out</h3>
+          <p class="muted">With one cell per item, sparse data can make an exact layout impossible. Picture five baits that share a single prey and nothing else. That prey is one cell with four sides, but all five private regions must touch it directly, because there are no in-between overlaps to route through. Polyomino Venn diagrams exist for any number of sets, but only when every combination is present and all regions are the same size. Real bait data have neither property.</p>
+          <div id="flower" style="margin-top:12px;max-width:340px"></div>
+        </div>
+        <div>
+          <h3>What to use instead</h3>
+          <ol class="ladder">
+            <li class="on"><b>2–3 sets: ItemiSet</b><span>Every zone connected and exactly proportional, from a simple template.</span></li>
+            <li><b>4 sets: itemized Karnaugh map</b><span>Explored as a prototype. Set labels become brackets along the margins instead of traced outlines.</span></li>
+            <li><b>5 or more sets: itemized UpSet plot</b><span>Proposed in the white paper. Each bar becomes a stack of member names, so stack height still shows the count.</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="compare">
+    <div class="wrap">
+      <h2>Where it fits</h2>
+      <div class="tblwrap">
+        <table class="cmp">
+          <thead><tr><th scope="col"></th><th scope="col">Venn</th><th scope="col">Area-proportional Euler</th><th scope="col">UpSet</th><th scope="col">ItemiSet</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Shows who the members are</th><td>No</td><td>No</td><td>No</td><td class="us">Yes, every name</td></tr>
+            <tr><th scope="row">Geometry</th><td>Fixed circles</td><td>Fitted circles or ellipses</td><td>Matrix and bars</td><td class="us">Rounded rectilinear polygons</td></tr>
+            <tr><th scope="row">Area accuracy</th><td>None</td><td>Approximate, fitted</td><td>Bar length</td><td class="us">Exact, one cell per item</td></tr>
+            <tr><th scope="row">Best for</th><td>Showing which overlaps exist, not their size</td><td>2–5 sets</td><td>4 or more sets</td><td class="us">2–3 sets</td></tr>
+            <tr><th scope="row">Lookup table needed</th><td>Yes</td><td>Yes</td><td>Yes</td><td class="us">No</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="name">
+    <div class="wrap namebox">
+      <div class="bigname" aria-label="ItemiSet">Item<span class="i">i</span>Set</div>
+      <div class="prose">
+        <p class="say">Say “item-EYE-set” to itemize your sets.</p>
+        <p class="muted">The name ties the tool to the Itemized Set Diagrams of the white paper, and the singular follows UpSet's lead: it names the tool, not the number of sets. The diagrams it makes are itemized area-proportional Euler diagrams. In set-theory terms, each set is drawn in roster form, with every element listed, rather than by its size alone.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Adam Claridge-Chang</p>
+  </div>
+</footer>
+
+<script src="assets/itemiset.js"></script>
+<script src="assets/example-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

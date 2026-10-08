@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://adamcc.github.io/itemiset/examples.html</loc>
+    <lastmod>2026-10-08T05:50:09.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adamcc.github.io/itemiset/tour.html</loc>
+    <lastmod>2026-10-08T05:50:09.571Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adamcc.github.io/itemiset/readers.html</loc>
+    <lastmod>2026-10-08T05:50:09.395Z</lastmod>
+  </url>
+<url>
+    <loc>https://adamcc.github.io/itemiset/render.html</loc>
+    <lastmod>2026-10-08T05:50:09.691Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adamcc.github.io/itemiset/edge_cases.html</loc>
+    <lastmod>2026-10-08T05:50:09.615Z</lastmod>
+  </url>
+<url>
+    <loc>https://adamcc.github.io/itemiset/cli.html</loc>
+    <lastmod>2026-10-08T05:50:09.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adamcc.github.io/itemiset/layout.html</loc>
+    <lastmod>2026-10-08T05:50:09.737Z</lastmod>
+  </url>
+<url>
+    <loc>https://adamcc.github.io/itemiset/fixtures.html</loc>
+    <lastmod>2026-10-08T05:50:09.452Z</lastmod>
+  </url>
+  <url>
+    <loc>https://adamcc.github.io/itemiset/readme.html</loc>
+    <lastmod>2026-10-08T05:50:09.612Z</lastmod>
+  </url>
+</urlset>

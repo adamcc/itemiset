@@ -1,0 +1,44 @@
+/* Docs pages. The splash page, web app and roadmap (site/) have their own stylesheet. */
+:root { --is-cyan: #1DA1D8; --is-magenta: #E0197D; --is-yellow: #A39300; }
+.navbar-brand, .navbar-title { font-weight: 800; letter-spacing: -0.01em; }
+a { text-decoration-color: var(--is-magenta); text-underline-offset: 3px; }
+
+.cell { margin-bottom: 1rem; }
+.cell > .sourceCode { margin-bottom: 0; }
+.cell-output > pre { margin-bottom: 0; }
+.cell-output > pre, .cell-output > .sourceCode > pre, .cell-output-stdout > pre {
+  margin-left: 0.8rem;
+  margin-top: 0;
+  background: none;
+  border-left: 2px solid var(--is-magenta);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.cell-output > .sourceCode { border: none; background: none; margin-top: 0; }
+.cell-output-display img { max-width: 100%; height: auto; }
+div.description { padding-left: 2px; padding-top: 5px; font-size: 125%; opacity: 75%; }
+
+/* Navbar: the same look as the header of the splash page, app and roadmap (site/assets/site.css) */
+.navbar {
+  background: rgba(247, 249, 251, .92) !important;
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom: 1px solid #D9E0E8;
+  box-shadow: none;
+  min-height: 58px; padding-top: 0; padding-bottom: 0;
+}
+.navbar .navbar-brand, .navbar .navbar-title {
+  color: #1C2433 !important; font-weight: 800; font-size: 20px; letter-spacing: -.01em;
+}
+.navbar .navbar-brand-logo { padding-right: 0; margin-right: 10px; }
+.navbar .navbar-logo { width: 30px; max-height: 22px; }
+.navbar .nav-link {
+  color: #566074 !important; font-weight: 600; font-size: 15px;
+  padding: 8px 12px !important; border-radius: 999px;
+}
+.navbar .nav-link:hover, .navbar .nav-link:focus-visible { color: #1C2433 !important; }
+/* every docs page is under "Docs", so keep that link marked as the current section */
+.navbar .nav-link.active, .navbar .nav-link[href$="tour.html"] { color: #1C2433 !important; background: #EEF2F6; }
+.navbar .nav-item + .nav-item { margin-left: 4px; }
+.navbar .bi-github { font-size: 17px; margin-right: 2px; }
+.navbar .navbar-toggler-icon { filter: invert(.3); }
+.navbar #quarto-search .aa-DetachedSearchButton, .navbar #quarto-search .aa-SubmitIcon { color: #566074; }
