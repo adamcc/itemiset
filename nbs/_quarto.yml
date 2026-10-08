@@ -1,0 +1,42 @@
+project:
+  type: website
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    keep-md: true
+    mainfont: Figtree, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap" rel="stylesheet">
+  commonmark: default
+
+website:
+  twitter-card: true
+  open-graph: true
+  repo-actions: [issue]
+  page-footer:
+    center: "© 2026 Adam Claridge-Chang"
+  navbar:
+    background: light
+    search: true
+    left:
+      - text: Home
+        href: https://adamcc.github.io/itemiset/
+      - text: App
+        href: https://adamcc.github.io/itemiset/app.html
+      - text: Docs
+        href: tour.html
+      - text: Roadmap
+        href: https://adamcc.github.io/itemiset/roadmap.html
+    right:
+      - icon: github
+        href: https://github.com/adamcc/itemiset
+  sidebar:
+    style: floating
+
+metadata-files: [nbdev.yml, sidebar.yml]

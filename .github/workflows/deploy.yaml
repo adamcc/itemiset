@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+permissions:
+  contents: write
+  pages: write
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install
+        run: |
+          python -m pip install -q --upgrade pip
+          pip install -q "nbdev>=3.3.21"
+          pip install -q -e ".[dev]"
+      - name: Build the docs (Quarto) and add the splash page, app and roadmap
+        run: |
+          nbdev-docs
+          python tools/build_site.py
+      - name: Publish to the gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force_orphan: true
+          publish_dir: ./_docs
+          publish_branch: gh-pages
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com

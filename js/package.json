@@ -1,0 +1,15 @@
+{
+  "name": "itemiset",
+  "version": "0.0.1",
+  "description": "Itemized area-proportional Euler diagrams in the browser: a port of the Python reference layout.",
+  "main": "itemiset.js",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Adam Claridge-Chang",
+  "repository": "github:adamcc/itemiset"
+}

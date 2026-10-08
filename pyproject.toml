@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "itemiset"
+dynamic = ["version"]
+description = "Itemized area-proportional Euler diagrams: every item gets one cell, so area is count and the names are the picture."
+readme = "README.md"
+requires-python = ">=3.10"
+# No licence has been chosen yet, so the code is "all rights reserved" for now.
+# Apache-2.0 is planned; add `license = "Apache-2.0"` here and a LICENSE file when ready.
+authors = [{name = "Adam Claridge-Chang"}]
+keywords = ["euler diagram", "venn diagram", "set visualization", "proteomics", "omics", "nbdev"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = ["pandas", "matplotlib>=3.5", "shapely>=2"]
+
+[project.optional-dependencies]
+excel = ["openpyxl"]
+dev = ["openpyxl"]
+
+[project.scripts]
+itemiset = "itemiset.cli:main"
+
+[project.urls]
+Repository = "https://github.com/adamcc/itemiset"
+Documentation = "https://adamcc.github.io/itemiset/"
+
+[project.entry-points.nbdev]
+itemiset = "itemiset._modidx:d"
+
+[tool.setuptools.dynamic]
+version = {attr = "itemiset.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["itemiset", "itemiset.*"]
+
+[tool.setuptools.package-data]
+"itemiset.data" = ["*.json"]
+
+[tool.nbdev]
+title = "ItemiSet"
+nbs_path = "nbs"
+doc_path = "_docs"
+recursive = false
+readme_nb = "readme.ipynb"
+custom_sidebar = true

@@ -1,0 +1,14 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "ItemiSet"
+  site-url: "https://adamcc.github.io/itemiset"
+  description: "Itemized area-proportional Euler diagrams: every item gets one cell, so area is count and the names are the picture."
+  repo-branch: main
+  repo-url: "https://github.com/adamcc/itemiset"
+
+format-links:
+  - html
+  - format: commonmark
+    text: Markdown

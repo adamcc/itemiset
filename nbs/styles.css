@@ -1,0 +1,19 @@
+/* Docs pages. The splash page, web app and roadmap (site/) have their own stylesheet. */
+:root { --is-cyan: #1DA1D8; --is-magenta: #E0197D; --is-yellow: #A39300; }
+.navbar-brand, .navbar-title { font-weight: 800; letter-spacing: -0.01em; }
+a { text-decoration-color: var(--is-magenta); text-underline-offset: 3px; }
+
+.cell { margin-bottom: 1rem; }
+.cell > .sourceCode { margin-bottom: 0; }
+.cell-output > pre { margin-bottom: 0; }
+.cell-output > pre, .cell-output > .sourceCode > pre, .cell-output-stdout > pre {
+  margin-left: 0.8rem;
+  margin-top: 0;
+  background: none;
+  border-left: 2px solid var(--is-magenta);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.cell-output > .sourceCode { border: none; background: none; margin-top: 0; }
+.cell-output-display img { max-width: 100%; height: auto; }
+div.description { padding-left: 2px; padding-top: 5px; font-size: 125%; opacity: 75%; }

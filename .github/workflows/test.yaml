@@ -1,0 +1,20 @@
+name: CI
+on: [workflow_dispatch, pull_request, push]
+
+jobs:
+  python:
+    # nbdev's standard checks: notebooks are clean, the library matches the notebooks, every notebook runs
+    runs-on: ubuntu-latest
+    steps: [uses: answerdotai/workflows/nbdev3-ci@master]
+
+  javascript:
+    # the browser layout must reproduce the Python fixtures cell for cell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test js/itemiset.js
+        working-directory: js
+        run: npm test

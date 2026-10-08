@@ -1,0 +1,18 @@
+website:
+  sidebar:
+    contents:
+      - section: Guide
+        contents:
+          - 10_tour.ipynb
+          - 20_edge_cases.ipynb
+      - section: Reference
+        contents:
+          - 00_layout.ipynb
+          - 01_readers.ipynb
+          - 02_render.ipynb
+          - 03_cli.ipynb
+      - section: Data and tests
+        contents:
+          - 05_examples.ipynb
+          - 04_fixtures.ipynb
+      - readme.ipynb

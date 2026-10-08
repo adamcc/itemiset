@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use ItemiSet, please cite it as below."
+title: "ItemiSet: itemized area-proportional Euler diagrams"
+type: software
+authors:
+  - family-names: Claridge-Chang
+    given-names: Adam
+version: 0.0.1
+date-released: 2026-10-07
+repository-code: "https://github.com/adamcc/itemiset"
+url: "https://adamcc.github.io/itemiset/"
+keywords:
+  - Euler diagram
+  - Venn diagram
+  - set visualization
+  - proteomics
