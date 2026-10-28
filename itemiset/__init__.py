@@ -4,3 +4,4 @@ from itemiset.layout import Cell, Layout, check_layout, compute_layout, layout_r
 from itemiset.readers import load_sets
 from itemiset.render import plot, render
 from itemiset.examples import load_example
+from itemiset.upset_plot import upset

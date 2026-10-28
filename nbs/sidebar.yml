@@ -11,6 +11,7 @@ website:
           - 01_readers.ipynb
           - 02_render.ipynb
           - 03_cli.ipynb
+          - 06_upset.ipynb
       - section: Data and tests
         contents:
           - 05_examples.ipynb
