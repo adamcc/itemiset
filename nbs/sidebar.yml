@@ -17,8 +17,21 @@ website:
             contents:
               - euler/05_examples.ipynb
               - euler/04_fixtures.ipynb
+      - section: Treemaps
+        contents:
+          - section: Guide
+            contents:
+              - treemap/10_tour.ipynb
+          - section: Reference
+            contents:
+              - treemap/00_layout.ipynb
+              - treemap/01_render.ipynb
+          - section: Data
+            contents:
+              - treemap/02_examples.ipynb
       - section: Core
         contents:
           - core/00_grid.ipynb
           - core/01_outline.ipynb
+          - core/02_text.ipynb
       - readme.ipynb

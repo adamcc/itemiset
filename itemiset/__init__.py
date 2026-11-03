@@ -1,8 +1,8 @@
 __version__ = "0.0.1"
 
-# Methods live in subpackages (itemiset.euler, and later itemiset.treemap and itemiset.upset);
+# Methods live in subpackages (itemiset.euler, itemiset.treemap, and later itemiset.upset);
 # code shared between them lives in itemiset.core.
-from itemiset import core, euler
+from itemiset import core, euler, treemap
 
 # The Euler method's names stay importable from the top level, so `from itemiset import plot`
 # keeps working. They are aliases of itemiset.euler.* until version 0.1.
