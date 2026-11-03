@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ItemiSet roadmap</title>
+<meta name="description" content="The plan for testing and releasing ItemiSet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="ItemiSet home">
+      <svg viewBox="0 0 30 22" aria-hidden="true"><rect x="1" y="1" width="16" height="12" rx="3" fill="#BDE8F8" stroke="#1DA1D8" stroke-width="1.5"/><rect x="13" y="1" width="16" height="12" rx="3" fill="#F8C3DE" fill-opacity=".8" stroke="#E0197D" stroke-width="1.5"/><rect x="7" y="9" width="16" height="12" rx="3" fill="#F7F0A6" fill-opacity=".75" stroke="#A39300" stroke-width="1.5"/></svg>
+      <span>ItemiSet</span>
+    </a>
+    <nav class="tabs" aria-label="Pages">
+      <a href="./">The idea</a>
+      <a href="app.html">App</a>
+      <a href="tour.html">Docs</a>
+      <a href="roadmap.html" aria-current="page">Roadmap</a>
+      <a class="gh" href="https://github.com/adamcc/itemiset" aria-label="Source code on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1 style="max-width:16ch">From working script to citable tool.</h1>
+      <p class="lede">The prototype script is now an nbdev package with notebook tests, and a JavaScript port of its layout runs this website. This plan takes it to a tested, documented, citable release. Tasks marked done are done in the repository; your own ticks are saved in this browser only.</p>
+      <div class="status">
+        <div><b>1–3</b><span>sets supported</span></div>
+        <div><b>2</b><span>implementations, one layout</span></div>
+        <div><b>5</b><span>invariants checked on every layout</span></div>
+        <div><b id="pctBig">0%</b><span>of this plan done</span></div>
+      </div>
+      <div class="progress" aria-hidden="true"><i id="pctBar"></i></div>
+      <button class="btn" type="button" id="resetTicks" style="margin-top:8px">Clear my ticks</button>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:36px">
+    <div class="wrap">
+      <h2>Five phases</h2>
+      <ol class="phases" id="phases"></ol>
+    </div>
+  </section>
+
+  <section class="block" id="tests">
+    <div class="wrap">
+      <h2>What the tests prove</h2>
+      <p class="prose muted">The correctness argument gives the test suite its targets. These checks run on the layout itself, not on rendered images, so they're exact and fast enough to run on thousands of random inputs. Both the Python package and the JavaScript port run them.</p>
+      <div class="tblwrap" style="border:none;background:transparent">
+        <table class="inv">
+          <thead><tr><th>Invariant</th><th>How it is checked</th></tr></thead>
+          <tbody>
+            <tr><td>One cell per item</td><td>Every input item appears exactly once; filler and ∅ placeholder cells are flagged and never counted.</td></tr>
+            <tr><td>Each set is one piece</td><td>A flood fill from any cell of the set reaches all of its cells.</td></tr>
+            <tr><td>No set has a hole</td><td>A flood fill from outside the bounding box reaches every cell that isn't in the set.</td></tr>
+            <tr><td>Each zone is one piece</td><td>The same flood-fill test, run on every non-empty zone.</td></tr>
+            <tr><td>No stray white pockets</td><td>All empty space connects to the outside edge, so blank cells can't be misread as members of a set.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="parity">
+        <p><b style="color:var(--ink)">Keeping two implementations in step.</b> Python is the reference. A notebook lays out over 200 inputs and saves every cell; the JavaScript tests must reproduce them exactly, so a change to either side that moves a single name fails the build.</p>
+      </div>
+      <h3 style="margin-top:40px">Edge-case gallery, checked live</h3>
+      <p class="prose muted small">The cases from the prototype's edge-case gallery, laid out here by the JavaScript port and checked against all five invariants as the page loads.</p>
+      <div class="gallery" id="gallery"></div>
+      <div class="fuzz">
+        <button class="btn primary" type="button" id="fuzzBtn">Run 500 random layouts</button>
+        <output id="fuzzOut" aria-live="polite" class="muted"></output>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2>Risks to watch</h2>
+      <div class="risks">
+        <div class="risk"><h3>Long names widen every cell</h3><p>Cell width follows the longest name, so one long identifier stretches the whole grid. Options: truncation with a key, or per-column widths.</p></div>
+        <div class="risk"><h3>A readability ceiling</h3><p>Past a few hundred items the text gets small. The docs should say where that limit is, measured on real figures.</p></div>
+        <div class="risk"><h3>Filler cells</h3><p>Rare data need a strip of blank cells to keep the bottom set in one piece. The layout already picks another bottom set to avoid this, and reports it when it can't.</p></div>
+        <div class="risk"><h3>Colour vision</h3><p>The CMY tints must not be the only cue. Outlines and set labels need to carry membership on their own, including in greyscale print.</p></div>
+        <div class="risk"><h3>The novelty claim</h3><p>The template was put together from standard parts. Check it against mosaic cartograms, waffle charts and Chow and Ruskey's work before calling it new.</p></div>
+        <div class="risk"><h3>Labels on tiny diagrams</h3><p>In the Python figures, a set label can be longer than its set is tall, and then it runs into the title. Very small diagrams need a different label placement.</p></div>
+      </div>
+      <h3 style="margin-top:44px">Decisions still open</h3>
+      <ul class="decide">
+        <li><b>Licence</b><span>Apache-2.0 is planned. Until a licence is added, the code is all rights reserved, so others can read it but not reuse it.</span></li>
+        <li><b>Default bottom set</b><span>Currently chosen automatically by layout score, which avoids filler. The alternative is the last set in input order, which is more predictable.</span></li>
+        <li><b>Order within zones</b><span>Names sort naturally (CNOT2 before CNOT10). Ordering by score could become an option, in both implementations at once.</span></li>
+        <li><b>Four sets in 1.0?</b><span>Suggested no. Ship 2–3 sets well, and keep the Karnaugh-map layout as an experimental module.</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Adam Claridge-Chang</p>
+  </div>
+</footer>
+
+<script src="assets/itemiset.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
