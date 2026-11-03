@@ -1,5 +1,5 @@
 // The JavaScript layout must match the Python reference cell for cell.
-// Fixtures are written by nbs/04_fixtures.ipynb.
+// Fixtures are written by nbs/euler/04_fixtures.ipynb.
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");

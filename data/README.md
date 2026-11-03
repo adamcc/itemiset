@@ -24,7 +24,7 @@ gzip -9 -n youn2018_biogrid-5.0.262.tab3.txt
 SHA-256 of the uncompressed file:
 `aa535b62c31241b43378c2bbd6105622e62315bf6ed420a726986223ada64cbb`
 
-The notebook `nbs/05_examples.ipynb` turns it into the example sets used in the docs and on the website.
+The notebook `nbs/euler/05_examples.ipynb` turns it into the example sets used in the docs and on the website.
 
 ## Licence
 

@@ -27,7 +27,7 @@ excel = ["openpyxl"]
 dev = ["openpyxl"]
 
 [project.scripts]
-itemiset = "itemiset.cli:main"
+itemiset = "itemiset.euler.cli:main"
 
 [project.urls]
 Repository = "https://github.com/adamcc/itemiset"
@@ -49,6 +49,6 @@ include = ["itemiset", "itemiset.*"]
 title = "ItemiSet"
 nbs_path = "nbs"
 doc_path = "_docs"
-recursive = false
+recursive = true
 readme_nb = "readme.ipynb"
 custom_sidebar = true
