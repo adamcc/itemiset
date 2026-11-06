@@ -1,18 +1,37 @@
 website:
   sidebar:
     contents:
-      - section: Guide
+      - section: Euler diagrams
         contents:
-          - 10_tour.ipynb
-          - 20_edge_cases.ipynb
-      - section: Reference
+          - section: Guide
+            contents:
+              - euler/10_tour.ipynb
+              - euler/20_edge_cases.ipynb
+          - section: Reference
+            contents:
+              - euler/00_layout.ipynb
+              - euler/01_readers.ipynb
+              - euler/02_render.ipynb
+              - euler/03_cli.ipynb
+          - section: Data and tests
+            contents:
+              - euler/05_examples.ipynb
+              - euler/04_fixtures.ipynb
+      - section: Treemaps
         contents:
-          - 00_layout.ipynb
-          - 01_readers.ipynb
-          - 02_render.ipynb
-          - 03_cli.ipynb
-      - section: Data and tests
+          - section: Guide
+            contents:
+              - treemap/10_tour.ipynb
+          - section: Reference
+            contents:
+              - treemap/00_layout.ipynb
+              - treemap/01_render.ipynb
+          - section: Data
+            contents:
+              - treemap/02_examples.ipynb
+      - section: Core
         contents:
-          - 05_examples.ipynb
-          - 04_fixtures.ipynb
+          - core/00_grid.ipynb
+          - core/01_outline.ipynb
+          - core/02_text.ipynb
       - readme.ipynb

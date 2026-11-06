@@ -33,7 +33,7 @@ website:
       - text: App
         href: https://adamcc.github.io/itemiset/app.html
       - text: Docs
-        href: tour.html
+        href: euler/tour.html
       - text: Roadmap
         href: https://adamcc.github.io/itemiset/roadmap.html
       - icon: github

@@ -1,0 +1,249 @@
+continent,subregion,code,country,population
+Africa,Eastern Africa,IO,British Indian Ocean Territory,3500
+Africa,Eastern Africa,BI,Burundi,13590100
+Africa,Eastern Africa,KM,Comoros,900141
+Africa,Eastern Africa,DJ,Djibouti,994974
+Africa,Eastern Africa,ER,Eritrea,6343960
+Africa,Eastern Africa,ET,Ethiopia,118550000
+Africa,Eastern Africa,TF,French Southern Territories,140
+Africa,Eastern Africa,KE,Kenya,58246400
+Africa,Eastern Africa,MG,Madagascar,29452700
+Africa,Eastern Africa,MW,Malawi,21763300
+Africa,Eastern Africa,MU,Mauritius,1310500
+Africa,Eastern Africa,YT,Mayotte,194000
+Africa,Eastern Africa,MZ,Mozambique,33351000
+Africa,Eastern Africa,RW,Rwanda,13623300
+Africa,Eastern Africa,RE,Réunion,787584
+Africa,Eastern Africa,SC,Seychelles,98187
+Africa,Eastern Africa,SO,Somalia,13017300
+Africa,Eastern Africa,SS,South Sudan,12703700
+Africa,Eastern Africa,TZ,Tanzania,67462100
+Africa,Eastern Africa,UG,Uganda,49283000
+Africa,Eastern Africa,ZM,Zambia,20799100
+Africa,Eastern Africa,ZW,Zimbabwe,17150400
+Africa,Middle Africa,AO,Angola,37202100
+Africa,Middle Africa,CM,Cameroon,30966100
+Africa,Middle Africa,CF,Central African Republic,5650960
+Africa,Middle Africa,TD,Chad,19093600
+Africa,Middle Africa,CG,Congo - Brazzaville,6097670
+Africa,Middle Africa,CD,Congo - Kinshasa,115403000
+Africa,Middle Africa,GQ,Equatorial Guinea,1795830
+Africa,Middle Africa,GA,Gabon,2455110
+Africa,Middle Africa,ST,São Tomé & Príncipe,223561
+Africa,Northern Africa,DZ,Algeria,47022500
+Africa,Northern Africa,EG,Egypt,111247000
+Africa,Northern Africa,LY,Libya,7361260
+Africa,Northern Africa,MA,Morocco,37387600
+Africa,Northern Africa,SD,Sudan,50467300
+Africa,Northern Africa,TN,Tunisia,12048800
+Africa,Northern Africa,EH,Western Sahara,652271
+Africa,Southern Africa,BW,Botswana,2450670
+Africa,Southern Africa,SZ,Eswatini,1138090
+Africa,Southern Africa,LS,Lesotho,2227550
+Africa,Southern Africa,NA,Namibia,2803660
+Africa,Southern Africa,ZA,South Africa,60442600
+Africa,Western Africa,BJ,Benin,14697100
+Africa,Western Africa,BF,Burkina Faso,23042200
+Africa,Western Africa,CV,Cape Verde,611014
+Africa,Western Africa,CI,Côte d’Ivoire,29981800
+Africa,Western Africa,GM,Gambia,2523330
+Africa,Western Africa,GH,Ghana,34589100
+Africa,Western Africa,GN,Guinea,13986200
+Africa,Western Africa,GW,Guinea-Bissau,2132330
+Africa,Western Africa,LR,Liberia,5437250
+Africa,Western Africa,ML,Mali,21990600
+Africa,Western Africa,MR,Mauritania,4328040
+Africa,Western Africa,NE,Niger,26342800
+Africa,Western Africa,NG,Nigeria,236747000
+Africa,Western Africa,SN,Senegal,18847500
+Africa,Western Africa,SL,Sierra Leone,9121050
+Africa,Western Africa,SH,St. Helena,7943
+Africa,Western Africa,TG,Togo,8917990
+Americas,Caribbean,AI,Anguilla,19416
+Americas,Caribbean,AG,Antigua & Barbuda,102634
+Americas,Caribbean,AW,Aruba,125063
+Americas,Caribbean,BS,Bahamas,410862
+Americas,Caribbean,BB,Barbados,304139
+Americas,Caribbean,VG,British Virgin Islands,40102
+Americas,Caribbean,BQ,Caribbean Netherlands,20000
+Americas,Caribbean,KY,Cayman Islands,66653
+Americas,Caribbean,CU,Cuba,10966000
+Americas,Caribbean,CW,Curaçao,153289
+Americas,Caribbean,DM,Dominica,74661
+Americas,Caribbean,DO,Dominican Republic,10815900
+Americas,Caribbean,GD,Grenada,114621
+Americas,Caribbean,GP,Guadeloupe,452776
+Americas,Caribbean,HT,Haiti,11753900
+Americas,Caribbean,JM,Jamaica,2823710
+Americas,Caribbean,MQ,Martinique,436131
+Americas,Caribbean,MS,Montserrat,5468
+Americas,Caribbean,PR,Puerto Rico,3019450
+Americas,Caribbean,SX,Sint Maarten,46215
+Americas,Caribbean,BL,St. Barthélemy,7086
+Americas,Caribbean,KN,St. Kitts & Nevis,55133
+Americas,Caribbean,LC,St. Lucia,168038
+Americas,Caribbean,MF,St. Martin,32996
+Americas,Caribbean,VC,St. Vincent & Grenadines,100647
+Americas,Caribbean,TT,Trinidad & Tobago,1408970
+Americas,Caribbean,TC,Turks & Caicos Islands,60439
+Americas,Caribbean,VI,U.S. Virgin Islands,104377
+Americas,Central America,BZ,Belize,415789
+Americas,Central America,CR,Costa Rica,5265580
+Americas,Central America,SV,El Salvador,6628700
+Americas,Central America,GT,Guatemala,18255200
+Americas,Central America,HN,Honduras,9529190
+Americas,Central America,MX,Mexico,130740000
+Americas,Central America,NI,Nicaragua,6676950
+Americas,Central America,PA,Panama,4470240
+Americas,Northern America,BM,Bermuda,72800
+Americas,Northern America,CA,Canada,38794800
+Americas,Northern America,GL,Greenland,57751
+Americas,Northern America,PM,St. Pierre & Miquelon,5132
+Americas,Northern America,US,US,341963000
+Americas,South America,AR,Argentina,46994400
+Americas,South America,BO,Bolivia,12312000
+Americas,South America,BV,Bouvet Island,1
+Americas,South America,BR,Brazil,220052000
+Americas,South America,CL,Chile,18664700
+Americas,South America,CO,Colombia,49588400
+Americas,South America,EC,Ecuador,18310000
+Americas,South America,FK,Falkland Islands,3662
+Americas,South America,GF,French Guiana,199509
+Americas,South America,GY,Guyana,794099
+Americas,South America,PY,Paraguay,7522550
+Americas,South America,PE,Peru,32600200
+Americas,South America,GS,South Georgia & South Sandwich Islands,20
+Americas,South America,SR,Suriname,646758
+Americas,South America,UY,Uruguay,3425330
+Americas,South America,VE,Venezuela,31250300
+Asia,Central Asia,KZ,Kazakhstan,20260000
+Asia,Central Asia,KG,Kyrgyzstan,6172100
+Asia,Central Asia,TJ,Tajikistan,10394100
+Asia,Central Asia,TM,Turkmenistan,5744150
+Asia,Central Asia,UZ,Uzbekistan,36520600
+Asia,Eastern Asia,CN,China,1416040000
+Asia,Eastern Asia,HK,Hong Kong,7297820
+Asia,Eastern Asia,JP,Japan,123202000
+Asia,Eastern Asia,MO,Macao,644426
+Asia,Eastern Asia,MN,Mongolia,3281680
+Asia,Eastern Asia,KP,North Korea,26298700
+Asia,Eastern Asia,KR,South Korea,52081800
+Asia,Eastern Asia,TW,Taiwan,23595300
+Asia,Southeast Asia,BN,Brunei,491900
+Asia,Southeast Asia,KH,Cambodia,17063700
+Asia,Southeast Asia,ID,Indonesia,281562000
+Asia,Southeast Asia,LA,Laos,7953560
+Asia,Southeast Asia,MY,Malaysia,34564800
+Asia,Southeast Asia,MM,Myanmar,57527100
+Asia,Southeast Asia,PH,Philippines,118277000
+Asia,Southeast Asia,SG,Singapore,6028460
+Asia,Southeast Asia,TH,Thailand,69921000
+Asia,Southeast Asia,TL,Timor-Leste,1506910
+Asia,Southeast Asia,VN,Vietnam,105759000
+Asia,Southern Asia,AF,Afghanistan,40121600
+Asia,Southern Asia,BD,Bangladesh,168697000
+Asia,Southern Asia,BT,Bhutan,884546
+Asia,Southern Asia,IN,India,1409130000
+Asia,Southern Asia,IR,Iran,88386900
+Asia,Southern Asia,MV,Maldives,388858
+Asia,Southern Asia,NP,Nepal,31122400
+Asia,Southern Asia,PK,Pakistan,252364000
+Asia,Southern Asia,LK,Sri Lanka,21982600
+Asia,Western Asia,AM,Armenia,2976770
+Asia,Western Asia,AZ,Azerbaijan,10650200
+Asia,Western Asia,BH,Bahrain,1566890
+Asia,Western Asia,CY,Cyprus,1320530
+Asia,Western Asia,GE,Georgia,4900960
+Asia,Western Asia,IQ,Iraq,42083400
+Asia,Western Asia,IL,Israel,9402620
+Asia,Western Asia,JO,Jordan,11174000
+Asia,Western Asia,KW,Kuwait,3138360
+Asia,Western Asia,LB,Lebanon,5364480
+Asia,Western Asia,OM,Oman,3901990
+Asia,Western Asia,PS,Palestine,5385010
+Asia,Western Asia,QA,Qatar,2552090
+Asia,Western Asia,SA,Saudi Arabia,36544400
+Asia,Western Asia,SY,Syria,23865400
+Asia,Western Asia,TR,Türkiye,84119500
+Asia,Western Asia,AE,United Arab Emirates,10032200
+Asia,Western Asia,YE,Yemen,32140400
+Europe,Eastern Europe,BY,Belarus,9501450
+Europe,Eastern Europe,BG,Bulgaria,6782660
+Europe,Eastern Europe,CZ,Czechia,10837900
+Europe,Eastern Europe,HU,Hungary,9855750
+Europe,Eastern Europe,MD,Moldova,3599530
+Europe,Eastern Europe,PL,Poland,38746300
+Europe,Eastern Europe,RO,Romania,18148200
+Europe,Eastern Europe,RU,Russia,140821000
+Europe,Eastern Europe,SK,Slovakia,5563650
+Europe,Eastern Europe,UA,Ukraine,35661800
+Europe,Northern Europe,DK,Denmark,5973140
+Europe,Northern Europe,EE,Estonia,1193790
+Europe,Northern Europe,FO,Faroe Islands,52933
+Europe,Northern Europe,FI,Finland,5626410
+Europe,Northern Europe,GG,Guernsey,67787
+Europe,Northern Europe,IS,Iceland,364036
+Europe,Northern Europe,IE,Ireland,5233460
+Europe,Northern Europe,IM,Isle of Man,92269
+Europe,Northern Europe,JE,Jersey,103387
+Europe,Northern Europe,LV,Latvia,1801250
+Europe,Northern Europe,LT,Lithuania,2628190
+Europe,Northern Europe,NO,Norway,5509730
+Europe,Northern Europe,SJ,Svalbard & Jan Mayen,2926
+Europe,Northern Europe,SE,Sweden,10589800
+Europe,Northern Europe,GB,UK,68459100
+Europe,Northern Europe,AX,Åland Islands,26200
+Europe,Southern Europe,AL,Albania,3107100
+Europe,Southern Europe,AD,Andorra,85370
+Europe,Southern Europe,BA,Bosnia,3798670
+Europe,Southern Europe,HR,Croatia,4150120
+Europe,Southern Europe,GI,Gibraltar,29683
+Europe,Southern Europe,GR,Greece,10461100
+Europe,Southern Europe,IT,Italy,60964900
+Europe,Southern Europe,MT,Malta,469730
+Europe,Southern Europe,ME,Montenegro,599849
+Europe,Southern Europe,MK,North Macedonia,2135620
+Europe,Southern Europe,PT,Portugal,10207200
+Europe,Southern Europe,SM,San Marino,35095
+Europe,Southern Europe,RS,Serbia,6652210
+Europe,Southern Europe,SI,Slovenia,2097890
+Europe,Southern Europe,ES,Spain,47280400
+Europe,Southern Europe,VA,Vatican City,1000
+Europe,Western Europe,AT,Austria,8967980
+Europe,Western Europe,BE,Belgium,11977600
+Europe,Western Europe,FR,France,68374600
+Europe,Western Europe,DE,Germany,84119100
+Europe,Western Europe,LI,Liechtenstein,40272
+Europe,Western Europe,LU,Luxembourg,671254
+Europe,Western Europe,MC,Monaco,31813
+Europe,Western Europe,NL,Netherlands,17772400
+Europe,Western Europe,CH,Switzerland,8860570
+Oceania,Australasia,AU,Australia,26768600
+Oceania,Australasia,CX,Christmas Island,1692
+Oceania,Australasia,CC,Cocos Islands,593
+Oceania,Australasia,HM,Heard & McDonald Islands,1
+Oceania,Australasia,NZ,New Zealand,5161210
+Oceania,Australasia,NF,Norfolk Island,1748
+Oceania,Melanesia,FJ,Fiji,951611
+Oceania,Melanesia,NC,New Caledonia,304167
+Oceania,Melanesia,PG,Papua New Guinea,10046200
+Oceania,Melanesia,SB,Solomon Islands,726799
+Oceania,Melanesia,VU,Vanuatu,318007
+Oceania,Micronesian Region,GU,Guam,169532
+Oceania,Micronesian Region,KI,Kiribati,116545
+Oceania,Micronesian Region,MH,Marshall Islands,82011
+Oceania,Micronesian Region,FM,Micronesia,99603
+Oceania,Micronesian Region,NR,Nauru,9892
+Oceania,Micronesian Region,MP,Northern Mariana Islands,51118
+Oceania,Micronesian Region,PW,Palau,21864
+Oceania,Micronesian Region,UM,U.S. Outlying Islands,316
+Oceania,Polynesia,AS,American Samoa,43895
+Oceania,Polynesia,CK,Cook Islands,7761
+Oceania,Polynesia,PF,French Polynesia,303540
+Oceania,Polynesia,NU,Niue,2000
+Oceania,Polynesia,PN,Pitcairn,50
+Oceania,Polynesia,WS,Samoa,208853
+Oceania,Polynesia,TK,Tokelau,1647
+Oceania,Polynesia,TO,Tonga,104889
+Oceania,Polynesia,TV,Tuvalu,11733
+Oceania,Polynesia,WF,Wallis & Futuna,15964

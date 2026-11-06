@@ -1,0 +1,1161 @@
+{
+ "ddx6": {
+  "data": [
+   {
+    "group": "Argonaute RISC component family",
+    "protein": "AGO1"
+   },
+   {
+    "group": "Argonaute RISC component family",
+    "protein": "AGO2"
+   },
+   {
+    "group": "Argonaute RISC component family",
+    "protein": "AGO3"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "ATXN2"
+   },
+   {
+    "group": "CCR4-NOT transcription complex",
+    "protein": "CNOT1"
+   },
+   {
+    "group": "CCR4-NOT transcription complex",
+    "protein": "CNOT10"
+   },
+   {
+    "group": "CCR4-NOT transcription complex",
+    "protein": "CNOT2"
+   },
+   {
+    "group": "CCR4-NOT transcription complex",
+    "protein": "CNOT3"
+   },
+   {
+    "group": "CCR4-NOT transcription complex",
+    "protein": "CNOT4"
+   },
+   {
+    "group": "CCR4-NOT transcription complex",
+    "protein": "CNOT6L"
+   },
+   {
+    "group": "CCR4-NOT transcription complex",
+    "protein": "CNOT7"
+   },
+   {
+    "group": "CCR4-NOT transcription complex",
+    "protein": "CNOT9"
+   },
+   {
+    "group": "RNA decapping and exonuclease complex subunits",
+    "protein": "DCP1A"
+   },
+   {
+    "group": "RNA decapping and exonuclease complex subunits",
+    "protein": "DCP1B"
+   },
+   {
+    "group": "RNA decapping and exonuclease complex subunits",
+    "protein": "DCP2"
+   },
+   {
+    "group": "RNA decapping and exonuclease complex subunits",
+    "protein": "EDC3"
+   },
+   {
+    "group": "RNA decapping and exonuclease complex subunits",
+    "protein": "EDC4"
+   },
+   {
+    "group": "No HGNC group",
+    "protein": "EIF4E"
+   },
+   {
+    "group": "No HGNC group",
+    "protein": "EIF4ENIF1"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "FUBP3"
+   },
+   {
+    "group": "RNA binding motif containing",
+    "protein": "G3BP2"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "GIGYF1"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "GTPBP1"
+   },
+   {
+    "group": "RNA binding motif containing",
+    "protein": "IGF2BP2"
+   },
+   {
+    "group": "LSm proteins",
+    "protein": "LSM12"
+   },
+   {
+    "group": "LSm proteins",
+    "protein": "LSM14A"
+   },
+   {
+    "group": "LSm proteins",
+    "protein": "LSM14B"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "MARF1"
+   },
+   {
+    "group": "No HGNC group",
+    "protein": "MCRIP2"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "MOV10"
+   },
+   {
+    "group": "No HGNC group",
+    "protein": "PATL1"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "SIPA1L2"
+   },
+   {
+    "group": "SURF complex",
+    "protein": "SMG1"
+   },
+   {
+    "group": "No HGNC group",
+    "protein": "SMG7"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "TDRD3"
+   },
+   {
+    "group": "No HGNC group",
+    "protein": "TMEM131"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "TNRC6B"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "TOP3B"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "TUT4"
+   },
+   {
+    "group": "SURF complex",
+    "protein": "UPF1"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "YTHDF2"
+   },
+   {
+    "group": "Other gene groups",
+    "protein": "ZNF598"
+   }
+  ],
+  "levels": [
+   "group"
+  ],
+  "name": "protein",
+  "numeral": null,
+  "labels": {
+   "CCR4-NOT transcription complex": "CCR4–NOT complex",
+   "RNA decapping and exonuclease complex subunits": "De­capping complex",
+   "Argonaute RISC component family": "Argo­nautes",
+   "RNA binding motif containing": "RNA binding motif"
+  },
+  "last": [
+   "Other gene groups",
+   "No HGNC group"
+  ],
+  "title": "DDX6 proximity partners by gene group",
+  "subtitle": "The 42 high-confidence BioID preys of DDX6, grouped by HGNC gene group.",
+  "note": "Data: Youn et al. (2018) Mol Cell 69:517, doi:10.1016/j.molcel.2017.12.020, via BioGRID 5.0.262 (MIT License). Gene groups: HGNC, genenames.org (CC0); one group per protein."
+ },
+ "countries": {
+  "data": [
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Burundi",
+    "population_millions": 14
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Eritrea",
+    "population_millions": 6
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Ethiopia",
+    "population_millions": 119
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Kenya",
+    "population_millions": 58
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Madagascar",
+    "population_millions": 29
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Malawi",
+    "population_millions": 22
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Mauritius",
+    "population_millions": 1
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Mozambique",
+    "population_millions": 33
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Rwanda",
+    "population_millions": 14
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Somalia",
+    "population_millions": 13
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "South Sudan",
+    "population_millions": 13
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Tanzania",
+    "population_millions": 67
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Uganda",
+    "population_millions": 49
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Zambia",
+    "population_millions": 21
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Eastern Africa",
+    "country": "Zimbabwe",
+    "population_millions": 17
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "country": "Angola",
+    "population_millions": 37
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "country": "Cameroon",
+    "population_millions": 31
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "country": "Central African Republic",
+    "population_millions": 6
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "country": "Chad",
+    "population_millions": 19
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "country": "Congo - Brazzaville",
+    "population_millions": 6
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "country": "Congo - Kinshasa",
+    "population_millions": 115
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "country": "Equatorial Guinea",
+    "population_millions": 2
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Middle Africa",
+    "country": "Gabon",
+    "population_millions": 2
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "country": "Algeria",
+    "population_millions": 47
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "country": "Egypt",
+    "population_millions": 111
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "country": "Libya",
+    "population_millions": 7
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "country": "Morocco",
+    "population_millions": 37
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "country": "Sudan",
+    "population_millions": 50
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Northern Africa",
+    "country": "Tunisia",
+    "population_millions": 12
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "country": "Botswana",
+    "population_millions": 2
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "country": "Eswatini",
+    "population_millions": 1
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "country": "Lesotho",
+    "population_millions": 2
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "country": "Namibia",
+    "population_millions": 3
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Southern Africa",
+    "country": "South Africa",
+    "population_millions": 60
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Benin",
+    "population_millions": 15
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Burkina Faso",
+    "population_millions": 23
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Côte d’Ivoire",
+    "population_millions": 30
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Gambia",
+    "population_millions": 3
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Ghana",
+    "population_millions": 35
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Guinea",
+    "population_millions": 14
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Guinea-Bissau",
+    "population_millions": 2
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Liberia",
+    "population_millions": 5
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Mali",
+    "population_millions": 22
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Mauritania",
+    "population_millions": 4
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Niger",
+    "population_millions": 26
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Nigeria",
+    "population_millions": 237
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Senegal",
+    "population_millions": 19
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Sierra Leone",
+    "population_millions": 9
+   },
+   {
+    "continent": "Africa",
+    "subregion": "Western Africa",
+    "country": "Togo",
+    "population_millions": 9
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "country": "Cuba",
+    "population_millions": 11
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "country": "Dominican Republic",
+    "population_millions": 11
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "country": "Haiti",
+    "population_millions": 12
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "country": "Jamaica",
+    "population_millions": 3
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "country": "Puerto Rico",
+    "population_millions": 3
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Caribbean",
+    "country": "Trinidad & Tobago",
+    "population_millions": 1
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Central America",
+    "country": "Costa Rica",
+    "population_millions": 5
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Central America",
+    "country": "El Salvador",
+    "population_millions": 7
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Central America",
+    "country": "Guatemala",
+    "population_millions": 18
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Central America",
+    "country": "Honduras",
+    "population_millions": 10
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Central America",
+    "country": "Mexico",
+    "population_millions": 131
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Central America",
+    "country": "Nicaragua",
+    "population_millions": 7
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Central America",
+    "country": "Panama",
+    "population_millions": 4
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Northern America",
+    "country": "Canada",
+    "population_millions": 39
+   },
+   {
+    "continent": "Americas",
+    "subregion": "Northern America",
+    "country": "US",
+    "population_millions": 342
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Argentina",
+    "population_millions": 47
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Bolivia",
+    "population_millions": 12
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Brazil",
+    "population_millions": 220
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Chile",
+    "population_millions": 19
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Colombia",
+    "population_millions": 50
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Ecuador",
+    "population_millions": 18
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Paraguay",
+    "population_millions": 8
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Peru",
+    "population_millions": 33
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Uruguay",
+    "population_millions": 3
+   },
+   {
+    "continent": "Americas",
+    "subregion": "South America",
+    "country": "Venezuela",
+    "population_millions": 31
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "country": "Kazakhstan",
+    "population_millions": 20
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "country": "Kyrgyzstan",
+    "population_millions": 6
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "country": "Tajikistan",
+    "population_millions": 10
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "country": "Turkmenistan",
+    "population_millions": 6
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Central Asia",
+    "country": "Uzbekistan",
+    "population_millions": 37
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "country": "China",
+    "population_millions": 1416
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "country": "Hong Kong",
+    "population_millions": 7
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "country": "Japan",
+    "population_millions": 123
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "country": "Mongolia",
+    "population_millions": 3
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "country": "North Korea",
+    "population_millions": 26
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "country": "South Korea",
+    "population_millions": 52
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Eastern Asia",
+    "country": "Taiwan",
+    "population_millions": 24
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Cambodia",
+    "population_millions": 17
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Indonesia",
+    "population_millions": 282
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Laos",
+    "population_millions": 8
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Malaysia",
+    "population_millions": 35
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Myanmar",
+    "population_millions": 58
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Philippines",
+    "population_millions": 118
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Singapore",
+    "population_millions": 6
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Thailand",
+    "population_millions": 70
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Timor-Leste",
+    "population_millions": 2
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southeast Asia",
+    "country": "Vietnam",
+    "population_millions": 106
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "country": "Afghanistan",
+    "population_millions": 40
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "country": "Bangladesh",
+    "population_millions": 169
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "country": "India",
+    "population_millions": 1409
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "country": "Iran",
+    "population_millions": 88
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "country": "Nepal",
+    "population_millions": 31
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "country": "Pakistan",
+    "population_millions": 252
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Southern Asia",
+    "country": "Sri Lanka",
+    "population_millions": 22
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Armenia",
+    "population_millions": 3
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Azerbaijan",
+    "population_millions": 11
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Bahrain",
+    "population_millions": 2
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Cyprus",
+    "population_millions": 1
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Georgia",
+    "population_millions": 5
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Iraq",
+    "population_millions": 42
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Israel",
+    "population_millions": 9
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Jordan",
+    "population_millions": 11
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Kuwait",
+    "population_millions": 3
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Lebanon",
+    "population_millions": 5
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Oman",
+    "population_millions": 4
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Palestine",
+    "population_millions": 5
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Qatar",
+    "population_millions": 3
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Saudi Arabia",
+    "population_millions": 37
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Syria",
+    "population_millions": 24
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Türkiye",
+    "population_millions": 84
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "United Arab Emirates",
+    "population_millions": 10
+   },
+   {
+    "continent": "Asia",
+    "subregion": "Western Asia",
+    "country": "Yemen",
+    "population_millions": 32
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Belarus",
+    "population_millions": 10
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Bulgaria",
+    "population_millions": 7
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Czechia",
+    "population_millions": 11
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Hungary",
+    "population_millions": 10
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Moldova",
+    "population_millions": 4
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Poland",
+    "population_millions": 39
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Romania",
+    "population_millions": 18
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Russia",
+    "population_millions": 141
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Slovakia",
+    "population_millions": 6
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Eastern Europe",
+    "country": "Ukraine",
+    "population_millions": 36
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "Denmark",
+    "population_millions": 6
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "Estonia",
+    "population_millions": 1
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "Finland",
+    "population_millions": 6
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "Ireland",
+    "population_millions": 5
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "Latvia",
+    "population_millions": 2
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "Lithuania",
+    "population_millions": 3
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "Norway",
+    "population_millions": 6
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "Sweden",
+    "population_millions": 11
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Northern Europe",
+    "country": "UK",
+    "population_millions": 68
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Albania",
+    "population_millions": 3
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Bosnia",
+    "population_millions": 4
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Croatia",
+    "population_millions": 4
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Greece",
+    "population_millions": 10
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Italy",
+    "population_millions": 61
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "North Macedonia",
+    "population_millions": 2
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Portugal",
+    "population_millions": 10
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Serbia",
+    "population_millions": 7
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Slovenia",
+    "population_millions": 2
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Southern Europe",
+    "country": "Spain",
+    "population_millions": 47
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "country": "Austria",
+    "population_millions": 9
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "country": "Belgium",
+    "population_millions": 12
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "country": "France",
+    "population_millions": 68
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "country": "Germany",
+    "population_millions": 84
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "country": "Netherlands",
+    "population_millions": 18
+   },
+   {
+    "continent": "Europe",
+    "subregion": "Western Europe",
+    "country": "Switzerland",
+    "population_millions": 9
+   },
+   {
+    "continent": "Oceania",
+    "subregion": "Australasia",
+    "country": "Australia",
+    "population_millions": 27
+   },
+   {
+    "continent": "Oceania",
+    "subregion": "Australasia",
+    "country": "New Zealand",
+    "population_millions": 5
+   },
+   {
+    "continent": "Oceania",
+    "subregion": "Melanesia",
+    "country": "Papua New Guinea",
+    "population_millions": 10
+   }
+  ],
+  "levels": [
+   "continent",
+   "subregion"
+  ],
+  "name": "country",
+  "numeral": "population_millions",
+  "labels": {},
+  "last": [],
+  "title": "The world's countries by UN region",
+  "subtitle": "Countries and territories with at least 1 million people, by UN M49 continent and subregion. Number = population, millions.",
+  "note": "Data: Unicode CLDR 48.2.3 (Unicode License v3): population and UN M49 regions."
+ }
+}
