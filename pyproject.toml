@@ -24,10 +24,11 @@ dependencies = ["pandas", "matplotlib>=3.5", "shapely>=2"]
 
 [project.optional-dependencies]
 excel = ["openpyxl"]
+hyphen = ["pyphen"]
 dev = ["openpyxl"]
 
 [project.scripts]
-itemiset = "itemiset.cli:main"
+itemiset = "itemiset.euler.cli:main"
 
 [project.urls]
 Repository = "https://github.com/adamcc/itemiset"
@@ -43,12 +44,12 @@ version = {attr = "itemiset.__version__"}
 include = ["itemiset", "itemiset.*"]
 
 [tool.setuptools.package-data]
-"itemiset.data" = ["*.json"]
+"itemiset.data" = ["*.json", "*.txt"]
 
 [tool.nbdev]
 title = "ItemiSet"
 nbs_path = "nbs"
 doc_path = "_docs"
-recursive = false
+recursive = true
 readme_nb = "readme.ipynb"
 custom_sidebar = true

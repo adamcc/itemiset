@@ -6,7 +6,7 @@
 A Venn diagram tells you how many proteins three baits share, but not which ones. ItemiSet draws the members themselves: one cell per item, coloured by the sets it belongs to, arranged so that each set and each overlap is a single connected region. Area is exactly proportional to count, and the figure doubles as the lookup table.
 
 - **Website and web app:** <https://adamcc.github.io/itemiset/>
-- **Documentation:** start with the [tour](https://adamcc.github.io/itemiset/tour.html)
+- **Documentation:** start with the [tour](https://adamcc.github.io/itemiset/euler/tour.html)
 
 ItemiSet draws one, two or three sets. It is pre-release software (version 0.0.1).
 
@@ -39,7 +39,7 @@ The input can be a membership table (a `gene` column plus a yes/no column per se
 
 ## Two implementations, one layout
 
-The Python package is the reference. The website runs a JavaScript port (`js/itemiset.js`) that must place every item in the same cell: `nbs/04_fixtures.ipynb` records a few hundred Python layouts, and the JavaScript tests reproduce them exactly.
+The Python package is the reference. The website runs a JavaScript port (`js/itemiset.js`) that must place every item in the same cell: `nbs/euler/04_fixtures.ipynb` records a few hundred Python layouts, and the JavaScript tests reproduce them exactly.
 
 ## Example data
 
