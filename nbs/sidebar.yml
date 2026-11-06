@@ -29,6 +29,9 @@ website:
           - section: Data
             contents:
               - treemap/02_examples.ipynb
+      - section: UpSet plots
+        contents:
+          - upset/00_upset.ipynb
       - section: Core
         contents:
           - core/00_grid.ipynb
