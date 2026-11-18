@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Size the cells and headers, draw the map with matplotlib, and the one-call plot function.">
+
+<title>Render – ItemiSet</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-52728d75d426d6291b096d115b23689a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Render – ItemiSet">
+<meta property="og:description" content="Size the cells and headers, draw the map with matplotlib, and the one-call plot function.">
+<meta property="og:image" content="https://adamcc.github.io/itemiset/treemap/01_render_files/figure-html/cell-6-output-1.png">
+<meta property="og:site_name" content="ItemiSet">
+<meta property="og:image:height" content="179">
+<meta property="og:image:width" content="302">
+<meta name="twitter:title" content="Render – ItemiSet">
+<meta name="twitter:description" content="Size the cells and headers, draw the map with matplotlib, and the one-call plot function.">
+<meta name="twitter:image" content="https://adamcc.github.io/itemiset/treemap/01_render_files/figure-html/cell-6-output-1.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../logo.svg" alt="ItemiSet" class="navbar-logo light-content">
+    <img src="../logo.svg" alt="ItemiSet" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ItemiSet</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://adamcc.github.io/itemiset/"> 
+<span class="menu-text">The idea</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://adamcc.github.io/itemiset/app.html"> 
+<span class="menu-text">App</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../euler/tour.html" aria-current="page"> 
+<span class="menu-text">Docs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://adamcc.github.io/itemiset/roadmap.html"> 
+<span class="menu-text">Roadmap</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/adamcc/itemiset"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item">Treemaps</li><li class="breadcrumb-item"><a href="../treemap/layout.html">Reference</a></li><li class="breadcrumb-item"><a href="../treemap/render.html">Render</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Section">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Background</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../articles/du-bois.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Du Bois method: expanding the boundaries of information design</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Euler diagrams</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Guide</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../euler/tour.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tour</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../euler/edge_cases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Edge cases</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Reference</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../euler/layout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Layout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../euler/readers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Readers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../euler/render.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Render</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../euler/cli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Command line</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Data and tests</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../euler/examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../euler/fixtures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fixtures for the JavaScript port</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-6-label">Treemaps</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Guide</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../treemap/tour.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Treemap tour</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-controls="quarto-sidebar-section-8" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-8-label">Reference</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-8" aria-labelledby="quarto-sidebar-section-8-label" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../treemap/layout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Layout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../treemap/render.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Render</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-controls="quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-9-label">Data</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-9" aria-labelledby="quarto-sidebar-section-9-label" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../treemap/examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-controls="quarto-sidebar-section-10" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-10-label">Core</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <ul id="quarto-sidebar-section-10" aria-labelledby="quarto-sidebar-section-10-label" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../core/grid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grid</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../core/outline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../core/text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Text</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../readme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ItemiSet</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sizes" id="toc-sizes" class="nav-link active" data-scroll-target="#sizes">Sizes</a></li>
+  <li><a href="#colours" id="toc-colours" class="nav-link" data-scroll-target="#colours">Colours</a></li>
+  <li><a href="#shapes" id="toc-shapes" class="nav-link" data-scroll-target="#shapes">Shapes</a></li>
+  <li><a href="#drawing" id="toc-drawing" class="nav-link" data-scroll-target="#drawing">Drawing</a></li>
+  <li><a href="#plot-a-table-in-a-treemap-out" id="toc-plot-a-table-in-a-treemap-out" class="nav-link" data-scroll-target="#plot-a-table-in-a-treemap-out"><code>plot</code>: a table in, a treemap out</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/adamcc/itemiset/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="render.html.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item">Treemaps</li><li class="breadcrumb-item"><a href="../treemap/layout.html">Reference</a></li><li class="breadcrumb-item"><a href="../treemap/render.html">Render</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Render</h1>
+</div>
+
+<div>
+  <div class="description">
+    Size the cells and headers, draw the map with matplotlib, and the one-call <code>plot</code> function.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<p>Each group, at every depth, is drawn as one flat-coloured, rounded rectilinear shape holding its header and its names. Top-level groups get distinct hues, chosen so that neighbouring groups never share one; nested groups are lighter shades of their parent’s hue, so a subgroup reads as a pale panel set into its parent.</p>
+<p>Headers are told apart from names without relying on the names’ own typography, since gene and protein names follow different case and italic rules in different organisms:</p>
+<ul>
+<li>header text is the only coloured text (a dark shade of its group’s hue), and is set heavier;</li>
+<li>by default headers take the <strong>opposite slant</strong> to the names: italic names (bacterial gene symbols, say) get roman headers, and roman names get italic headers.</li>
+</ul>
+<p>An item may carry a <strong>numeral</strong>, drawn in grey before its name and right-aligned in its own column so that digits line up.</p>
+<section id="sizes" class="level2">
+<h2 class="anchored" data-anchor-id="sizes">Sizes</h2>
+<p><a href="https://adamcc.github.io/itemiset/treemap/render.html#prepare"><code>prepare</code></a> measures every name and header label in the font, and decides:</p>
+<ul>
+<li>the <strong>cell width</strong>: the widest numeral, a gap, and the widest name, plus room for the insets of the deepest nesting level (headers never widen cells);</li>
+<li>each header’s <strong>span</strong>: the fewest cells (up to <code>max_span</code>) its label needs on one line side by side (<em>wide</em>), and its line breaks when stacked one per cell down a column (<em>tall</em>). The layout then chooses which shape fits where. A label too long for <code>max_span</code> cells is shortened with an ellipsis.</li>
+</ul>
+<p>Nested shapes are inset more from the sides (<code>dx</code>) than from above and below (<code>dy</code>), so groups side by side are clearly separate while stacked groups sit close, which keeps rows short.</p>
+<div id="f2db9302" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-18T05:58:59.035655+00:00&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-18T05:58:59.153317+00:00&quot;,&quot;total&quot;:0.11766855799999121}}" data-execution_count="4">
+<hr>
+<p><a href="https://github.com/adamcc/itemiset/blob/main/itemiset/treemap/render.py#L28" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="metrics" class="level3">
+<h3 class="anchored" data-anchor-id="metrics">Metrics</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Metrics(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    font:<span class="bu">str</span>, size:<span class="bu">float</span>, cw:<span class="bu">float</span>, ch:<span class="bu">float</span>, dx:<span class="bu">dict</span>, dy:<span class="bu">dict</span>, pad_l:<span class="bu">float</span>, pad_r:<span class="bu">float</span>, num_w:<span class="bu">float</span><span class="op">=</span><span class="fl">0.0</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    gap:<span class="bu">float</span><span class="op">=</span><span class="fl">0.0</span>, item_style:<span class="bu">object</span><span class="op">=</span><span class="st">'normal'</span>, header_style:<span class="bu">str</span><span class="op">=</span><span class="st">'italic'</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">-&gt;</span><span class="va">None</span>:</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Sizes shared by <a href="https://adamcc.github.io/itemiset/treemap/render.html#prepare"><code>prepare</code></a> and <a href="https://adamcc.github.io/itemiset/euler/render.html#render"><code>render</code></a>, in points.</em></p>
+</section>
+</div>
+<div id="229e334c" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-18T05:58:59.161671+00:00&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-18T05:58:59.172929+00:00&quot;,&quot;total&quot;:0.011262794999993275}}" data-execution_count="6">
+<hr>
+<p><a href="https://github.com/adamcc/itemiset/blob/main/itemiset/treemap/render.py#L68" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="prepare" class="level3">
+<h3 class="anchored" data-anchor-id="prepare">prepare</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prepare(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    root:itemiset.treemap.layout.Group, size:<span class="bu">float</span><span class="op">=</span><span class="fl">7.0</span>, font:<span class="bu">str</span><span class="op">=</span><span class="st">'DejaVu Sans'</span>, item_style:<span class="bu">str</span><span class="op">=</span><span class="st">'normal'</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    header_style:<span class="bu">str</span><span class="op">=</span><span class="st">'opposite'</span>, max_span:<span class="bu">int</span><span class="op">=</span><span class="dv">3</span>, hyphenate:<span class="bu">bool</span><span class="op">=</span><span class="va">False</span>, dx1:<span class="bu">float</span><span class="op">=</span><span class="fl">1.6</span>, dx_step:<span class="bu">float</span><span class="op">=</span><span class="fl">2.4</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    dy1:<span class="bu">float</span><span class="op">=</span><span class="fl">0.8</span>, dy_step:<span class="bu">float</span><span class="op">=</span><span class="fl">1.0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)<span class="op">-&gt;</span>__main__.Metrics:</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Measure names and headers; set every group’s header shape; return the sizes for drawing.</em></p>
+<p><code>item_style</code> is the names’ slant: “normal”, “italic”, or a function <code>item -&gt; "normal" | "italic"</code>. <code>header_style</code> is “normal”, “italic” or “opposite” (the opposite of most names’ slant). <code>hyphenate=True</code> lets long header words break at dictionary points (needs <code>pyphen</code>).</p>
+</section>
+</div>
+</section>
+<section id="colours" class="level2">
+<h2 class="anchored" data-anchor-id="colours">Colours</h2>
+</section>
+<section id="shapes" class="level2">
+<h2 class="anchored" data-anchor-id="shapes">Shapes</h2>
+<p>A group’s shape is the union of its cells (computed on the exact integer grid, since unions of fractional boxes can leave hairline slits), shrunk by <code>dx</code> at the sides and <code>dy</code> above and below, then rounded: inner corners as far as the group’s own cells allow, so neighbours never overlap, and outer corners no more than half the thinnest part, so a one-cell stub is never erased.</p>
+</section>
+<section id="drawing" class="level2">
+<h2 class="anchored" data-anchor-id="drawing">Drawing</h2>
+<div id="9fe5a110" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-18T05:58:59.194186+00:00&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-18T05:58:59.215163+00:00&quot;,&quot;total&quot;:0.02098251600000367}}" data-execution_count="10">
+<hr>
+<p><a href="https://github.com/adamcc/itemiset/blob/main/itemiset/euler/render.py#L41" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="render" class="level3">
+<h3 class="anchored" data-anchor-id="render">render</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> render(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    lay:itemiset.treemap.layout.Layout, M:__main__.Metrics, out:NoneType<span class="op">=</span><span class="va">None</span>, title:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, subtitle:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    note:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, radius:<span class="bu">float</span><span class="op">=</span><span class="fl">4.5</span>, dpi:<span class="bu">int</span><span class="op">=</span><span class="dv">220</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)<span class="op">-&gt;</span>matplotlib.figure.Figure:</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Draw <code>lay</code> as a matplotlib <code>Figure</code>, and save it to <code>out</code> (.png, .pdf or .svg) if given.</em></p>
+</section>
+</div>
+</section>
+<section id="plot-a-table-in-a-treemap-out" class="level2">
+<h2 class="anchored" data-anchor-id="plot-a-table-in-a-treemap-out"><a href="https://adamcc.github.io/itemiset/euler/render.html#plot"><code>plot</code></a>: a table in, a treemap out</h2>
+<p><a href="https://adamcc.github.io/itemiset/euler/render.html#plot"><code>plot</code></a> takes one row per item: a column naming the item, one column per level of grouping (top level first), and optionally a column of numerals. The table can be a pandas <code>DataFrame</code>, a list of dicts, or a path to a CSV, TSV or Excel file.</p>
+<div id="6bd4b413" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2026-11-18T05:58:59.222155+00:00&quot;,&quot;shell.execute_reply&quot;:&quot;2026-11-18T05:58:59.229927+00:00&quot;,&quot;total&quot;:0.007775051999999505}}" data-execution_count="12">
+<hr>
+<p><a href="https://github.com/adamcc/itemiset/blob/main/itemiset/euler/render.py#L161" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="plot" class="level3">
+<h3 class="anchored" data-anchor-id="plot">plot</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    data, levels, name:<span class="bu">str</span>, numeral:<span class="bu">str</span> <span class="op">|</span> <span class="va">None</span><span class="op">=</span><span class="va">None</span>, labels:<span class="bu">dict</span> <span class="op">|</span> <span class="va">None</span><span class="op">=</span><span class="va">None</span>, out:NoneType<span class="op">=</span><span class="va">None</span>, title:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    subtitle:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, note:<span class="bu">str</span><span class="op">=</span><span class="st">''</span>, min_group:<span class="bu">int</span><span class="op">=</span><span class="dv">1</span>, last:<span class="bu">tuple</span><span class="op">=</span>(), item_style:<span class="bu">str</span><span class="op">=</span><span class="st">'normal'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    header_style:<span class="bu">str</span><span class="op">=</span><span class="st">'opposite'</span>, font:<span class="bu">str</span><span class="op">=</span><span class="st">'DejaVu Sans'</span>, fontsize:<span class="bu">float</span><span class="op">=</span><span class="fl">7.0</span>, hyphenate:<span class="bu">bool</span><span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    target_aspect:<span class="bu">float</span><span class="op">=</span><span class="fl">1.6</span>, dpi:<span class="bu">int</span><span class="op">=</span><span class="dv">220</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)<span class="op">-&gt;</span>itemiset.treemap.layout.Layout:</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><em>Draw an itemized treemap of <code>data</code>: one row per item, grouped by the <code>levels</code> columns (top level first).</em></p>
+<p><code>name</code> is the column of item names and <code>numeral</code> an optional column drawn before each name. <code>labels</code> maps group names to shorter header text (use “0ad”, a soft hyphen, to mark where a word may break). Returns the <a href="https://adamcc.github.io/itemiset/euler/layout.html#layout"><code>Layout</code></a>; its figure is <code>.fig</code>.</p>
+</section>
+</div>
+<p>A small example: fruit and vegetables, by kind, with a price as the numeral. A layout shows its figure when it is the last thing in a notebook cell:</p>
+<div id="bcc19c82" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>produce <span class="op">=</span> [<span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Fruit"</span>, sub<span class="op">=</span><span class="st">"Citrus"</span>, item<span class="op">=</span><span class="st">"lemon"</span>, price<span class="op">=</span><span class="dv">3</span>), <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Fruit"</span>, sub<span class="op">=</span><span class="st">"Citrus"</span>, item<span class="op">=</span><span class="st">"lime"</span>, price<span class="op">=</span><span class="dv">2</span>),</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>           <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Fruit"</span>, sub<span class="op">=</span><span class="st">"Citrus"</span>, item<span class="op">=</span><span class="st">"orange"</span>, price<span class="op">=</span><span class="dv">4</span>), <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Fruit"</span>, sub<span class="op">=</span><span class="st">"Citrus"</span>, item<span class="op">=</span><span class="st">"grapefruit"</span>, price<span class="op">=</span><span class="dv">5</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Fruit"</span>, sub<span class="op">=</span><span class="st">"Berry"</span>, item<span class="op">=</span><span class="st">"strawberry"</span>, price<span class="op">=</span><span class="dv">6</span>), <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Fruit"</span>, sub<span class="op">=</span><span class="st">"Berry"</span>, item<span class="op">=</span><span class="st">"blueberry"</span>, price<span class="op">=</span><span class="dv">8</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Fruit"</span>, sub<span class="op">=</span><span class="st">"Berry"</span>, item<span class="op">=</span><span class="st">"raspberry"</span>, price<span class="op">=</span><span class="dv">7</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Vegetable"</span>, sub<span class="op">=</span><span class="st">"Root"</span>, item<span class="op">=</span><span class="st">"carrot"</span>, price<span class="op">=</span><span class="dv">1</span>), <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Vegetable"</span>, sub<span class="op">=</span><span class="st">"Root"</span>, item<span class="op">=</span><span class="st">"beetroot"</span>, price<span class="op">=</span><span class="dv">2</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>           <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Vegetable"</span>, sub<span class="op">=</span><span class="st">"Leaf"</span>, item<span class="op">=</span><span class="st">"spinach"</span>, price<span class="op">=</span><span class="dv">3</span>), <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Vegetable"</span>, sub<span class="op">=</span><span class="st">"Leaf"</span>, item<span class="op">=</span><span class="st">"lettuce"</span>, price<span class="op">=</span><span class="dv">2</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>           <span class="bu">dict</span>(kind<span class="op">=</span><span class="st">"Vegetable"</span>, sub<span class="op">=</span><span class="st">"Leaf"</span>, item<span class="op">=</span><span class="st">"kale"</span>, price<span class="op">=</span><span class="dv">4</span>)]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>lay <span class="op">=</span> plot(produce, levels<span class="op">=</span>[<span class="st">"kind"</span>, <span class="st">"sub"</span>], name<span class="op">=</span><span class="st">"item"</span>, numeral<span class="op">=</span><span class="st">"price"</span>, title<span class="op">=</span><span class="st">"Produce"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>lay</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01_render_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="499e644d" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">all</span>(check_layout(lay).values())</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>test_eq(lay.n_items, <span class="dv">12</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>test_eq(<span class="bu">sorted</span>(<span class="bu">len</span>(p) <span class="cf">for</span> p <span class="kw">in</span> lay.regions <span class="cf">if</span> p), [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Output format follows the file extension. In SVG and PDF the names stay as editable text:</p>
+<div id="a17af8be" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="op">=</span> Path(tempfile.mkdtemp())</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ext <span class="kw">in</span> (<span class="st">"png"</span>, <span class="st">"pdf"</span>, <span class="st">"svg"</span>):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    plot(produce, levels<span class="op">=</span>[<span class="st">"kind"</span>, <span class="st">"sub"</span>], name<span class="op">=</span><span class="st">"item"</span>, out<span class="op">=</span>tmp<span class="op">/</span><span class="ss">f"produce.</span><span class="sc">{</span>ext<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> (tmp<span class="op">/</span><span class="ss">f"produce.</span><span class="sc">{</span>ext<span class="sc">}</span><span class="ss">"</span>).stat().st_size <span class="op">&gt;</span> <span class="dv">1000</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>svg <span class="op">=</span> (tmp<span class="op">/</span><span class="st">"produce.svg"</span>).read_text()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="st">"&gt;grapefruit&lt;/text&gt;"</span> <span class="kw">in</span> svg <span class="kw">and</span> <span class="st">"&gt;Citrus&lt;/text&gt;"</span> <span class="kw">in</span> svg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The names’ slant can be set for all names, or per name with a function; headers take the opposite slant unless told otherwise:</p>
+<div id="e6f86b7c" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> prepare(build_tree([((<span class="st">"A"</span>,), Item(<span class="st">"dnaK"</span>))]), item_style<span class="op">=</span><span class="st">"italic"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>test_eq(M.header_style, <span class="st">"normal"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> prepare(build_tree([((<span class="st">"A"</span>,), Item(<span class="st">"dnaK"</span>)), ((<span class="st">"A"</span>,), Item(<span class="st">"sll0430"</span>)), ((<span class="st">"A"</span>,), Item(<span class="st">"groL"</span>))]),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            item_style<span class="op">=</span><span class="kw">lambda</span> it: <span class="st">"normal"</span> <span class="cf">if</span> it.name.startswith(<span class="st">"s"</span>) <span class="cf">else</span> <span class="st">"italic"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>test_eq(M.header_style, <span class="st">"normal"</span>)      <span class="co"># most names are italic</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>test_eq(M.style_of(Item(<span class="st">"sll0430"</span>)), <span class="st">"normal"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> prepare(build_tree([((<span class="st">"A"</span>,), Item(<span class="st">"DDX6"</span>))]), header_style<span class="op">=</span><span class="st">"normal"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>test_eq(M.header_style, <span class="st">"normal"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>test_fail(<span class="kw">lambda</span>: prepare(build_tree([((<span class="st">"A"</span>,), Item(<span class="st">"x"</span>))]), header_style<span class="op">=</span><span class="st">"bold"</span>), contains<span class="op">=</span><span class="st">"header_style"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Numerals take their own column only when some item has one; integral floats print without “.0”:</p>
+<div id="6d41061f" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>test_eq(prepare(build_tree([((<span class="st">"A"</span>,), Item(<span class="st">"x"</span>))])).num_w, <span class="fl">0.0</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> prepare(build_tree([((<span class="st">"A"</span>,), Item(<span class="st">"x"</span>, numeral<span class="op">=</span><span class="st">"1416"</span>))])).num_w <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>test_eq([_numeral(v) <span class="cf">for</span> v <span class="kw">in</span> (<span class="fl">1416.0</span>, <span class="dv">3</span>, <span class="st">"12"</span>, <span class="va">None</span>, <span class="bu">float</span>(<span class="st">"nan"</span>))], [<span class="st">"1416"</span>, <span class="st">"3"</span>, <span class="st">"12"</span>, <span class="va">None</span>, <span class="va">None</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A header label too long for one cell takes two or three; one too long even for three is shortened:</p>
+<div id="767b43db" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>root <span class="op">=</span> build_tree([((<span class="st">"Ribosomal proteins: synthesis and modification"</span>, <span class="st">"x"</span>), Item(<span class="st">"rplA"</span>)),</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                   ((<span class="st">"Ribosomal proteins: synthesis and modification"</span>, <span class="st">"y"</span>), Item(<span class="st">"rplB"</span>)),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                   ((<span class="st">"CNOT"</span>, <span class="st">"z"</span>), Item(<span class="st">"CNOT1"</span>)), ((<span class="st">"CNOT"</span>, <span class="st">"w"</span>), Item(<span class="st">"CNOT2"</span>))])</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> prepare(root)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>by_name <span class="op">=</span> {g.name: g <span class="cf">for</span> g <span class="kw">in</span> root.children}</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">long</span>, short <span class="op">=</span> by_name[<span class="st">"Ribosomal proteins: synthesis and modification"</span>], by_name[<span class="st">"CNOT"</span>]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>test_eq(short.header_span, <span class="dv">1</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>test_eq(<span class="bu">long</span>.header_span, <span class="dv">3</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">long</span>.header_wide.endswith(<span class="st">"…"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Mistakes in the table are reported:</p>
+<div id="a3fb97d7" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>test_fail(<span class="kw">lambda</span>: plot(produce, levels<span class="op">=</span>[<span class="st">"kind"</span>], name<span class="op">=</span><span class="st">"fruit"</span>), contains<span class="op">=</span><span class="st">"no column"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>test_fail(<span class="kw">lambda</span>: plot([<span class="bu">dict</span>(kind<span class="op">=</span><span class="va">None</span>, item<span class="op">=</span><span class="st">"x"</span>)], levels<span class="op">=</span>[<span class="st">"kind"</span>], name<span class="op">=</span><span class="st">"item"</span>), contains<span class="op">=</span><span class="st">"empty"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/adamcc\.github\.io\/itemiset");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 Adam Claridge-Chang</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/adamcc/itemiset/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
