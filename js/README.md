@@ -1,7 +1,7 @@
 # itemiset.js
 
 The browser version of ItemiSet's layout, used by the website and web app. It is a port of the
-Python reference in `nbs/00_layout.ipynb` and must put every item in the same cell.
+Python reference in `nbs/euler/00_layout.ipynb` and must put every item in the same cell.
 
 ```html
 <script src="itemiset.js"></script>
@@ -25,6 +25,6 @@ Python reference in `nbs/00_layout.ipynb` and must put every item in the same ce
 npm test
 ```
 
-`test/fixtures/layouts.json` is written by `nbs/04_fixtures.ipynb`. If you change the Python layout,
+`test/fixtures/layouts.json` is written by `nbs/euler/04_fixtures.ipynb`. If you change the Python layout,
 regenerate it (`ITEMISET_REGEN=1 nbdev-test --file-glob 04_fixtures.ipynb`) and update `itemiset.js`
 until the tests pass. No dependencies; Node 20 or later.

@@ -1,9 +1,9 @@
 /*!
  * ItemiSet for the browser: itemized area-proportional Euler diagrams.
  *
- * A port of the Python reference layout (nbs/00_layout.ipynb). The layout part must
+ * A port of the Python reference layout (nbs/euler/00_layout.ipynb). The layout part must
  * put every item in the same cell as Python does; js/test/fixtures.test.js checks this
- * against records written by nbs/04_fixtures.ipynb. Drawing (renderSVG) is free to differ.
+ * against records written by nbs/euler/04_fixtures.ipynb. Drawing (renderSVG) is free to differ.
  *
  * Works as a <script> (defines window.ItemiSet) and as a CommonJS module (for Node tests).
  * © 2026 Adam Claridge-Chang. No licence has been granted yet.
