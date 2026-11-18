@@ -1,6 +1,9 @@
 website:
   sidebar:
     contents:
+      - section: Background
+        contents:
+          - articles/du-bois.qmd
       - section: Euler diagrams
         contents:
           - section: Guide

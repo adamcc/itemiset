@@ -42,3 +42,6 @@ div.description { padding-left: 2px; padding-top: 5px; font-size: 125%; opacity:
 .navbar .bi-github { font-size: 17px; margin-right: 2px; }
 .navbar .navbar-toggler-icon { filter: invert(.3); }
 .navbar #quarto-search .aa-DetachedSearchButton, .navbar #quarto-search .aa-SubmitIcon { color: #566074; }
+
+/* Reference lists: let long URLs and DOIs wrap on narrow screens */
+.csl-entry a { overflow-wrap: anywhere; }
